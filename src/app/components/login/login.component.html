@@ -1,23 +1,43 @@
-<div>
-    <div>
-        <img src="" alt="logo">
-    </div>
-    <div>
-        <h1>Login</h1>
-        <form >
-            <div>
+<app-header></app-header>
 
+
+<div class="container">
+    <div class="center">
+        <h1>Login!!</h1>
+
+        <form [formGroup]="LoginForm" >   
+            <div class="text_field">
+                
+                <input type="text" required id="username" name="username" #fn formControlName="username">
+                <span></span>
+                <label>Username</label>
             </div>
-            <div>
-                <label>Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div>
+            <div *ngIf="!LoginForm.get('username')?.valid && (LoginForm.get('username')?.dirty || LoginForm.get('username')?.touched)" class="error">
+                <div *ngIf="LoginForm.get('username')!.errors!.required">
+                 Username is required
+                </div>
+            </div>      
+
+            <div class="text_field">
+                <input type="password" required  id="password" name="password" #fn formControlName="password">
+                
+                <span></span>
                 <label>Password</label>
-                <input type="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
-            <a href="#">Create Account</a>
+            <div *ngIf="!LoginForm.get('password')?.valid && (LoginForm.get('password')?.dirty || LoginForm.get('password')?.touched)" class="error">
+                <div *ngIf="LoginForm.get('password')!.errors!.required">
+                 Password is required
+                </div>
+            </div>      
+
+            <input type="submit" value="Login">
+            <button routerLink="" routerLinkActive="router-link-active"  type="button" onclick="cancel()">Cancel</button>
+        
         </form>
     </div>
+  
+   
 </div>
+
+<app-footer></app-footer>
+

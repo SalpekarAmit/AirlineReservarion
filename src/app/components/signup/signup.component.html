@@ -1,71 +1,110 @@
-<div>
-    <div>
-        <img src="" alt="logo">
-    </div>
-    <div>
-        <h1>Signup</h1>
-        <form>
-            <div>
+<app-header></app-header>
+<div class="container">
+    <div class="center">
+        <h1>Signup!!</h1>
 
+        <form [formGroup]="RegistrationForm" >
+        
+            <select class="title_field">
+                <option value="Mr">Mr.</option>
+                <option value="Miss">Miss</option>
+                <option value="Mrs">Mrs.</option>
+              </select>
+
+            <div class="text_field">
+                <input type="text" required id="fname" name="fname" #fn formControlName="firstname">
+                <span></span>
+                <label>First Name</label>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <label>Title</label>
-                        <input type="text" name="title" required>
-                    </div>
-                    <div>
-                        <label>First name</label>
-                        <input type="text" name="first_name" required>
-                    </div>
+            <div *ngIf="!RegistrationForm.get('firstname')?.valid && (RegistrationForm.get('firstname')?.dirty || RegistrationForm.get('firstname')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('firstname')!.errors!.required">
+                  First Name is required
                 </div>
+                <div *ngIf="RegistrationForm.get('firstname')!.errors!.pattern">
+                    First Name pattern not matched
+                </div>
+            </div>      
+    
+            <div class="text_field">
+                <input type="text" required id="lname" name="lname" #fn formControlName="lastname">
+                <span></span>
+                <label>Last Name</label>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <label>Last Name</label>
-                        <input type="text" name="last-name" required>
-                    </div>
-                    <div>
-                        <label>Date</label>
-                        <input type="text" name="dob" required>
-                    </div>
+            <div *ngIf="!RegistrationForm.get('lastname')?.valid && (RegistrationForm.get('lastname')?.dirty || RegistrationForm.get('lastname')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('lasttname')!.errors!.required">
+                  Last Name is required
                 </div>
+                <div *ngIf="RegistrationForm.get('lasttname')!.errors!.pattern">
+                 Last Name pattern not matched
+                </div>
+            </div>      
+
+            <div class="text_field">
+                <input type="email" required id="Email" name="Email" #fn formControlName="email">
+                <span></span>
+                <label>Email id</label>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <label>Password</label>
-                        <input type="text" name="password" required>
-                    </div>
-                    <div>
-                        <label>Confirm Password</label>
-                        <input type="text" name="cnfpwd" required>
-                    </div>
+            <div *ngIf="!RegistrationForm.get('email')?.valid && (RegistrationForm.get('email')?.dirty || RegistrationForm.get('email')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('email')!.errors!.required">
+                 Email is required
                 </div>
+            </div>      
+               
+            <div class="text_field">
+                <input type="text" required id="username" name="username" #fn formControlName="username">
+                <span></span>
+                <label>Username</label>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <label>Email</label>
-                        <input type="text" name="email" required>
-                    </div>
-                    <div>
-                        <label>Phone numbner</label>
-                        <input type="text" name="mobile" required>
-                    </div>
+            <div *ngIf="!RegistrationForm.get('username')?.valid && (RegistrationForm.get('username')?.dirty || RegistrationForm.get('username')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('username')!.errors!.required">
+                 Username is required
                 </div>
+            </div>      
+
+            <div class="text_field">
+                <input type="password" required  id="password" name="password" #fn formControlName="password">
+                
+                <span></span>
+                <label>Password</label>
             </div>
-            <div>
-                <div>
-                    <button type="submit">Submit</button>
+            <div *ngIf="!RegistrationForm.get('password')?.valid && (RegistrationForm.get('password')?.dirty || RegistrationForm.get('password')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('password')!.errors!.required">
+                 Password is required
                 </div>
+            </div>      
+
+            <div class="text_field">
+                <input type="password" required>
+                <span></span>
+                <label>Confirm Password</label>
             </div>
-            <div>
-                <div>
-                    <button type="submit">Already have an account? Login</button>
+
+            <div class="text_field">
+                <input type="date" required id="DateOfBirth" name="DateOfBirth" #fn formControlName="dob">
+                <span></span>
+                <label>Date of birth</label>
+            </div>
+            <div *ngIf="!RegistrationForm.get('dob')?.valid && (RegistrationForm.get('dob')?.dirty || RegistrationForm.get('dob')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('dob')!.errors!.required">
+               DOB is required
                 </div>
-            </div>                        
+            </div>      
+            <div class="text_field">
+                <input type="number" required pattern="^(?=.*[0-9]).{10}$" id="mobile" name="mobile" #fn formControlName="mobile">
+                <span></span>
+                <label>Mobile number</label>
+            </div>
+            <div *ngIf="!RegistrationForm.get('mobile')?.valid && (RegistrationForm.get('mobile')?.dirty || RegistrationForm.get('mobile')?.touched)" class="error">
+                <div *ngIf="RegistrationForm.get('mobile')!.errors!.required">
+               Phone number is required
+                </div>
+            </div>      
+            <input type="submit" value="register">
+            <button routerLink="" routerLinkActive="router-link-active" type="button" onclick="cancel()">Cancel</button>
         </form>
     </div>
+  
+   
 </div>
+
+<app-footer></app-footer>

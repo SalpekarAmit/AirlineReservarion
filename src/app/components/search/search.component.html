@@ -1,49 +1,97 @@
-<p>search works!</p>
-<div>
-    <nav>        
-    <div>
-        <img src="" alt="logo">
-    </div>
-    <div>
-        <a routerLink="/login">Login</a>
-        <a routerLink="/signup">Signup</a>
-    </div>
-    </nav>
+<div class="container">
+  <div class="center">
+      <h1>Book your Flight!!</h1>
+
+      <form [formGroup]="SearchForm" >
+      
+          
+          <div class="text_field">
+              <input type="text" required id="from" name="from" #fn formControlName="from">
+              <span></span>
+              <label>From</label>
+          </div>
+          <div *ngIf="!SearchForm.get('form')?.valid && (SearchForm.get('from')?.dirty || SearchForm.get('from')?.touched)" class="error">
+              <div *ngIf="SearchForm.get('from')!.errors!.required">
+                From is required
+              </div>
+              <div *ngIf="SearchForm.get('from')!.errors!.pattern">
+                  From pattern not matched
+              </div>
+          </div>
+          
+          <div class="text_field">
+            <input type="text" required id="to" name="to" #fn formControlName="to">
+            <span></span>
+            <label>To</label>
+        </div>
+        <div *ngIf="!SearchForm.get('to')?.valid && (SearchForm.get('to')?.dirty || SearchForm.get('to')?.touched)" class="error">
+            <div *ngIf="SearchForm.get('to')!.errors!.required">
+              To is required
+            </div>
+            <div *ngIf="SearchForm.get('to')!.errors!.pattern">
+                To pattern not matched
+            </div>
+        </div>
+
+        <div class="text_field">
+                <input type="date" required id="departuredate" name="departuredate" #fn formControlName="departuredate">
+                <span></span>
+                <label>Departure Date</label>
+        </div>
+        <div *ngIf="!SearchForm.get('departuredate')?.valid && (SearchForm.get('departuredate')?.dirty || SearchForm.get('departuredate')?.touched)" class="error">
+            <div *ngIf="SearchForm.get('departuredate')!.errors!.required">
+              Departure Date is required
+            </div>
+        </div> 
+
+        <div class="text_field">
+                <input type="date" required id="arrivaldate" name="arrivaldate" #fn formControlName="arrivaldate">
+                <span></span>
+                <label>Arrival Date</label>
+        </div>
+        <div *ngIf="!SearchForm.get('arrivaldate')?.valid && (SearchForm.get('arrivaldate')?.dirty || SearchForm.get('arrivaldate')?.touched)" class="error">
+            <div *ngIf="SearchForm.get('arrivaldate')!.errors!.required">
+              Arrival Date is required
+            </div>
+        </div>
+        <div class="text-field">
+          <input type="number" id="input-group" placeholder="Travellers">
+        </div>
+          
+        <div>
+          <div >
+            <label for="adults">ADULTS</label>
+            <select name="adults" id="adults">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="info-box">
+            <label for="children">CHILDREN</label>
+            <select name="children" id="children">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="0">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="info-box">
+            <label for="class-type">CLASS</label>
+            <select name="class-type" id="class-type">
+              <option value="Economy">ECONOMY</option>
+              <option value="Business">BUSINESS</option>
+              <option value="First">FIRST CLASS</option>
+            </select>
+          </div>
+      </div>
+      <div>
+        <input type="submit" value="Search Flights">
+      </div>          
     
-    <div>
-        <h2>My your Plan with Us</h2>
-        <h1>Where you want to go</h1>        
-    </div>
+      </form>
+  </div>
 
-    <div>
-        <form>
-            <div>
-                <div>
-                    <div>
-                        <input type="radio" value="one-way" name="journey">
-                        <label for="one-way">One Way</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="Return" name="journey">
-                        <label for="return"></label>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <input type="text" id="input-group" required placeholder="From">
-                    <input type="date" id="input-group" required placeholder="To">
-                    <input type="date" id="input-group" required placeholder="Departure">
-                    <input type="date" id="input-group" required placeholder="Arrival">
-                </div>
-                <div>
-                    <button type="submit">Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
+ 
 </div>
-
-<footer>
-    <a href="">Go to Admin</a>
-</footer>

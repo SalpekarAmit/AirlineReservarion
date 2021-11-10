@@ -1,0 +1,41 @@
+ul.nav {
+    margin-left:0;
+    padding:0;
+    list-style:none;
+    height:36px; line-height:36px;
+    background:whitesmoke; /* you can change the backgorund color here. */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+    border-bottom:1px solid black;
+}
+ul.nav li {
+    border-right:1px solid black;
+    border-left:1px solid black;
+    
+    border-bottom:1px solid black; /* you can change the border color matching to your background color */
+    float:right;
+}
+
+ul.nav a {
+    display:block;
+    padding:0 28px;
+    color:black;
+    text-decoration:none;
+    text-align: right;
+}
+ul.nav a:hover
+    {
+        background:orange;
+    }
+
+ul.nav a:active {
+    background-color:orange;
+}
+.lir1{
+    
+    margin-left: 740;
+    
+}
+/* .lir1:current{
+    background:orange;
+} */
